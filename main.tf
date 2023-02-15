@@ -8,7 +8,7 @@ resource "aws_ecs_cluster" "main" {
   }
 }
 
-resource "aws_security_group" "fargate_sg" {
+/*resource "aws_security_group" "fargate_sg" {
   name        = "${var.fargate_cluster_name}-sg"
   description = "Cloud ECS Security Group for: ${var.fargate_cluster_name}"
   vpc_id      = var.vpc_id
@@ -37,9 +37,9 @@ resource "aws_security_group" "fargate_sg" {
   tags       = var.tags
   depends_on = [aws_ecs_cluster.main]
 
-}
+}*/
 
-resource "aws_security_group_rule" "allow_all_output" {
+/*resource "aws_security_group_rule" "allow_all_output" {
   description       = "Cloud ECS Security Group for Outgoing Traffic for: ${var.fargate_cluster_name}"
   type              = "egress"
   from_port         = 0
@@ -48,4 +48,4 @@ resource "aws_security_group_rule" "allow_all_output" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.fargate_sg.id
   depends_on        = [aws_ecs_cluster.main, aws_security_group.fargate_sg]
-}
+}*/
